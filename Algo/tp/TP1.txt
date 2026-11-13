@@ -1,0 +1,152 @@
+Aboressence et controle
+cp fix2.txt ../TP2/
+cp fix.txt ../TP2/
+
+9
+rm ../TP*/fix*
+
+10
+rm -r ../../Algo ../../algo ../../tmp
+
+Redition
+1
+touch exo3.c
+#include <stdio.h>
+
+int main()
+{
+    int a, b;
+    printf("Saisissez deux entiers: ");
+    scanf("%d%d", &a, &b);
+    printf("Somme de %d et %d = %d\n", a, b, a+b);
+    return 0;
+}
+
+2
+gcc -o main exo3.c
+./main
+
+3
+./main > sortie.txt
+
+4
+cat > entree.txt
+
+5
+./main < entree.txt > sortie.txt
+
+Programmation
+1
+#include <stdio.h>
+
+int positif_3(float nb)
+{
+    if(nb>0){
+    	printf("Le nombre est strictement positif\n");
+    }else{
+    	printf("Le nombre est negatif ou nul\n");
+    }
+}
+
+int main()
+{
+    int a;
+    printf("Saisissez un entier: ");
+    scanf("%d", &a);
+    positif_3(a);
+    
+    return 0;
+}
+
+2
+#include <stdio.h>
+
+int positif_3(int nb1, int nb2)
+{
+    if(nb1 > nb2){
+    	return nb2;
+    }
+    return nb1;
+}
+
+int main()
+{
+    int a, b, min;
+    
+    printf("Saisissez deux entiers: \n");
+    scanf("%d%d", &a, &b);
+    
+    min = positif_3(a, b);
+    printf("Minimum: %d\n", min);
+    
+    return 0;
+}
+
+3
+#include <stdio.h>
+
+float moyenne(int n)
+{
+	int val;
+	float moy;
+ 	printf("Saisissez des series entiers: \n");
+    scanf("%d", &val);
+    
+    moy = val;
+ 	for(int i = 2; i <=n; i++)
+	{
+		scanf("%d", &val);
+		moy += val;
+	}
+	moy = moy*1.0/n;
+    return moy;
+}
+
+int main()
+{
+    int n, moy;
+    
+    printf("Saisissez n: \n");
+    scanf("%d", &n);
+    
+    moy = moyenne(n);
+    printf("Moyenne de %d entier: %d\n", n, moy);
+    
+    return 0;
+}
+
+4
+#include <stdio.h>
+
+void maxPos()
+{
+	int pos, n;
+	float max, val;
+ 	printf("Saisissez un entier:");
+    scanf("%f", &val);
+    n = 1;
+    max = val;
+	pos = n;
+	printf("Saisissez un entier:");
+    scanf("%f", &val);
+    while(val != 0)
+    {
+    	n += 1;
+    	
+    	if(val > max){
+    		max = val;
+    		pos = n;
+    	}
+    	printf("Saisissez un entier:");
+    	scanf("%f", &val);
+    }
+	printf("Maximum: %f\n", max);
+	printf("Position de Maximum: %d\n", pos);
+}
+
+int main()
+{
+    maxPos();
+    
+    return 0;
+}
